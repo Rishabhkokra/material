@@ -1,0 +1,516 @@
+Book My show DB design:
+
+User
+| UserID | Name  | Email           | Password  |
+|--------|-------|-----------------|-----------|
+| 1      | John  | john@email.com  | hashed123 |
+| 2      | Alice | alice@email.com | hashed456 |
+
+Movie
+| MovieID | Title     | Description              | Release Date |
+|---------|-----------|--------------------------|--------------|
+| 101     | Movie A   | Exciting action movie   | 2023-01-01   |
+| 102     | Movie B   | Romantic drama          | 2023-02-15   |
+
+Cinema
+| CinemaID | Name       | Location         |
+|----------|------------|------------------|
+| 201      | Cinema X   | City A, Street 1 |
+| 202      | Cinema Y   | City B, Street 2 |
+
+Show
+| ShowID | MovieID | CinemaID | Show Time          |
+|--------|---------|----------|--------------------|
+| 301    | 101     | 201      | 2023-01-01 18:00  |
+| 302    | 101     | 201      | 2023-01-01 21:00  |
+| 303    | 101     | 202      | 2023-01-02 15:00  |
+| 304    | 102     | 201      | 2023-02-15 19:30  |
+
+Booking
+| BookingID | UserID | ShowID | Number of Tickets | Booking Date        |
+|-----------|--------|--------|-------------------|---------------------|
+| 401       | 1      | 301    | 2                 | 2023-01-01 12:00   |
+| 402       | 2      | 302    | 1                 | 2023-01-01 13:30   |
+| 403       | 1      | 303    | 3                 | 2023-01-02 14:00
+
+
+===================================================================================================
+
+
+Basic amazon/flipkart order db design:
+
+User
+| UserID | Name  | Email           | Password  | Address           |
+|--------|-------|-----------------|-----------|-------------------|
+| 1      | John  | john@email.com  | hashed123 | 123 Main St       |
+| 2      | Alice | alice@email.com | hashed456 | 456 Oak Ave       |
+
+Product
+| ProductID | Name        | Description                 | Price | Stock Quantity |
+|-----------|-------------|-----------------------------|-------|-----------------|
+| 101       | Laptop      | High-performance laptop     | 999   | 50              |
+| 102       | Smartphone  | Latest model smartphone     | 499   | 100             |
+
+Order
+| OrderID | UserID | Order Date          | Order Status |
+|---------|--------|---------------------|--------------|
+| 201     | 1      | 2023-01-01 10:00   | Pending      |
+| 202     | 2      | 2023-01-02 12:30   | Shipped      |
+
+OrderItem
+| OrderItemID | OrderID | ProductID | Quantity | Subtotal |
+|-------------|---------|-----------|----------|----------|
+| 301         | 201     | 101       | 2        | 1998     |
+| 302         | 202     | 102       | 1        | 499      |
+
+
+=======================================================================================================
+
+Goibibo booking DB design:
+
+
+User
+| UserID | Name  | Email           | Password  | Address           |
+|--------|-------|-----------------|-----------|-------------------|
+| 1      | John  | john@email.com  | hashed123 | 123 Main St       |
+| 2      | Alice | alice@email.com | hashed456 | 456 Oak Ave       |
+
+Airline
+| AirlineID | Name         |
+|-----------|--------------|
+| 101       | Airline A    |
+| 102       | Airline B    |
+
+Airport
+| AirportID | Name         | Location       |
+|-----------|--------------|----------------|
+| 201       | Airport X    | City A, Country A |
+| 202       | Airport Y    | City B, Country B |
+
+Flight
+| FlightID | AirlineID | SourceAirportID | DestinationAirportID | DepartureDateTime   | ArrivalDateTime     | AvailableSeats |
+|----------|-----------|------------------|-----------------------|----------------------|----------------------|-----------------|
+| 301      | 101       | 201              | 202                   | 2023-01-01 10:00    | 2023-01-01 12:00    | 150             |
+| 302      | 102       | 202              | 201                   | 2023-01-02 14:30    | 2023-01-02 16:30    | 120             |
+
+Hotel
+| HotelID | Name          | Location       |
+|---------|---------------|----------------|
+| 401     | Hotel Alpha   | City A, Country A |
+| 402     | Hotel Beta    | City B, Country B |
+
+Room
+| RoomID | HotelID | RoomType | Availability |
+|--------|---------|----------|--------------|
+| 501    | 401     | Deluxe   | 10           |
+| 502    | 401     | Standard | 20           |
+| 503    | 402     | Suite    | 5            |
+
+Bus
+| BusID | Operator    | SourceLocation | DestinationLocation | DepartureDateTime   | ArrivalDateTime     | AvailableSeats |
+|-------|-------------|-----------------|----------------------|----------------------|----------------------|-----------------|
+| 601   | Bus Express | City A          | City B               | 2023-02-01 08:00    | 2023-02-01 14:00    | 40              |
+| 602   | Travel Co.  | City B          | City A               | 2023-02-02 12:00    | 2023-02-02 18:00    | 30              |
+
+Booking
+| BookingID | UserID | ItemType | ItemID | Quantity | BookingDateTime     |
+|-----------|--------|----------|--------|----------|----------------------|
+| 701       | 1      | Flight   | 301    | 2        | 2023-01-01 08:00    |
+| 702       | 2      | Hotel    | 501    | 1        | 2023-01-02 12:30    |
+| 703       | 1      | Bus      | 601    | 3        | 2023-02-01 10:00    |
+
+
+=================================================================================================================
+
+Office seat booking:
+
+User
+| UserID | Name  | Email           | Password  |
+|--------|-------|-----------------|-----------|
+| 1      | John  | john@email.com  | hashed123 |
+| 2      | Alice | alice@email.com | hashed456 |
+
+Office
+| OfficeID | Name        | Location       |
+|----------|-------------|----------------|
+| 101      | Office A    | City X, Country X |
+| 102      | Office B    | City Y, Country Y |
+
+Seat
+| SeatID | OfficeID | SeatNumber | Availability |
+|--------|----------|------------|--------------|
+| 201    | 101      | 101        | Vacant       |
+| 202    | 101      | 102        | Occupied     |
+| 203    | 102      | 201        | Vacant       |
+| 204    | 102      | 202        | Vacant       |
+
+Booking
+| BookingID | UserID | SeatID | BookingDateTime    | Status     |
+|-----------|--------|--------|--------------------|------------|
+| 301       | 1      | 201    | 2023-01-01 10:00   | Confirmed  |
+| 302       | 2      | 203    | 2023-01-02 12:30   | Pending    |
+| 303       | 1      | 202    | 2023-01-03 14:00   | Canceled   |
+
+================================================================================================================================================
+
+Zomato like DB design:
+
+User
+| UserID | Name  | Email           | Password  | Address           |
+|--------|-------|-----------------|-----------|-------------------|
+| 1      | John  | john@email.com  | hashed123 | 123 Main St       |
+| 2      | Alice | alice@email.com | hashed456 | 456 Oak Ave       |
+
+Restaurant
+| RestaurantID | Name          | Cuisine   | Location       |
+|--------------|---------------|-----------|----------------|
+| 101          | Restaurant A  | Italian   | City X, Country X |
+| 102          | Restaurant B  | Indian    | City Y, Country Y |
+
+Menu
+| MenuID | RestaurantID | ItemName           | Price |
+|--------|--------------|--------------------|-------|
+| 201    | 101          | Pasta              | 10.99 |
+| 202    | 101          | Pizza              | 15.99 |
+| 203    | 102          | Curry              | 8.99  |
+| 204    | 102          | Biryani            | 12.99 |
+
+Order
+| OrderID | UserID | RestaurantID | TotalAmount | OrderDateTime       |
+|---------|--------|--------------|-------------|----------------------|
+| 301     | 1      | 101          | 26.98       | 2023-01-01 12:00    |
+| 302     | 2      | 102          | 21.98       | 2023-01-02 14:30    |
+
+OrderItem
+| OrderItemID | OrderID | MenuID | Quantity | Subtotal |
+|-------------|---------|--------|----------|----------|
+| 401         | 301     | 201    | 2        | 21.98    |
+| 402         | 302     | 203    | 1        | 8.99     |
+
+Review
+| ReviewID | UserID | RestaurantID | Rating | Comment                 |
+|----------|--------|--------------|--------|-------------------------|
+| 501      | 1      | 101          | 4.5    | Great Italian cuisine! |
+| 502      | 2      | 102          | 3.8    | Good Indian food.      |
+
+
+
+=========================================================================================================================
+
+
+Airbnb db design:
+
+User
+| UserID | Name  | Email           | Password  | Address           |
+|--------|-------|-----------------|-----------|-------------------|
+| 1      | John  | john@email.com  | hashed123 | 123 Main St       |
+| 2      | Alice | alice@email.com | hashed456 | 456 Oak Ave       |
+
+Property
+| PropertyID | UserID | Title             | Description               | Location           | Price per Night |
+|------------|--------|-------------------|---------------------------|--------------------|------------------|
+| 101        | 1      | Cozy Apartment    | Modern apartment in city  | City X, Country X  | 80.00            |
+| 102        | 2      | Beach House        | Relax by the sea          | City Y, Country Y  | 120.00          |
+
+Booking
+| BookingID | UserID | PropertyID | Check-in Date | Check-out Date | Total Amount |
+|-----------|--------|------------|---------------|----------------|--------------|
+| 201       | 1      | 101        | 2023-01-15    | 2023-01-20     | 400.00       |
+| 202       | 2      | 102        | 2023-02-01    | 2023-02-05     | 480.00       |
+
+Review
+| ReviewID | UserID | PropertyID | Rating | Comment                        |
+|----------|--------|------------|--------|--------------------------------|
+| 301      | 1      | 101        | 4.5    | Enjoyed my stay, great location |
+| 302      | 2      | 102        | 4.2    | Beautiful views from the house |
+
+
+
+
+===================================================================================================
+
+Parking system db design:
+
+
+ParkingLot
+| LotID | Name           | Location       | Capacity |
+|-------|----------------|----------------|----------|
+| 101   | City Center    | City X, Country X | 100      |
+| 102   | Suburb Plaza   | City Y, Country Y | 50       |
+
+ParkingSpace
+| SpaceID | LotID | SpaceNumber | Status       |
+|---------|-------|-------------|--------------|
+| 201     | 101   | 101         | Available    |
+| 202     | 101   | 102         | Occupied     |
+| 203     | 102   | 201         | Available    |
+
+Vehicle
+| VehicleID | SpaceID | LicensePlate |
+|-----------|--------|--------------|
+| 301       | 201      | ABC123       |
+| 302       | 202     | XYZ789       |
+
+Transaction
+| TransactionID || SpaceID | VehicleID | Check-in Time        | Check-out Time       | Total Amount |
+|---------------|--------|---------|-----------|----------------------|----------------------|--------------|
+| 401           || 201     | 301       | 2023-01-01 10:00     | 2023-01-01 14:00     | 12.00        |
+| 402           || 203     | 302       | 2023-01-02 12:30     | 2023-01-02 15:45     | 8.50         |
+
+
+
+========================================================================================================
+
+E-commerce database design
+
+User
+| UserID | Name  | Email           | Password  |
+|--------|-------|-----------------|-----------|
+| 1      | John  | john@email.com  | hashed123 |
+| 2      | Alice | alice@email.com | hashed456 |
+
+Category
+| CategoryID | Name       |
+|------------|------------|
+| 101        | Electronics |
+| 102        | Clothing    |
+
+Product
+| ProductID | Name         | Description            | Price | StockQuantity | CategoryID |
+|-----------|--------------|------------------------|-------|---------------|------------|
+| 201       | Laptop       | High-performance laptop | 800   | 50            | 101        |
+| 202       | T-shirt      | Cotton T-shirt          | 20    | 100           | 102        |
+
+Order
+| OrderID | UserID | OrderDate         | TotalAmount |
+|---------|--------|-------------------|-------------|
+| 301     | 1      | 2023-01-15 10:00  | 820         |
+| 302     | 2      | 2023-02-01 12:30  | 40          |
+
+OrderItem
+| OrderItemID | OrderID | ProductID | Quantity | Subtotal |
+|-------------|---------|-----------|----------|----------|
+| 401         | 301     | 201       | 2        | 1600     |
+| 403         | 301     | 202       | 1        | 60       |
+| 402         | 302     | 202       | 3        | 60       |
+
+
+
+=============================================================================================================
+
+
+Outlook meeting DB design:
+
+User
+| UserID | Name  | Email           |
+|--------|-------|-----------------|
+| 1      | John  | john@email.com  |
+| 2      | Alice | alice@email.com |
+
+Meeting
+| MeetingID | OrganizerID | Title           | Description             | StartDateTime       | EndDateTime         | Location         |
+|-----------|-------------|-----------------|-------------------------|---------------------|---------------------|-------------------|
+| 101       | 1           | Team Meeting    | Monthly team gathering  | 2023-01-15 10:00   | 2023-01-15 11:30   | Conference Room A |
+| 102       | 2           | Project Review  | Review project progress | 2023-02-01 14:00   | 2023-02-01 16:00   | Virtual Meeting   |
+
+Participant
+| ParticipantID | MeetingID | UserID | Response         |
+|---------------|-----------|--------|------------------|
+| 201           | 101       | 1      | Accepted         |
+| 202           | 101       | 2      | Tentative        |
+| 203           | 102       | 1      | Declined         |
+| 204           | 102       | 2      | Accepted         |
+
+
+==================================================================
+
+Betting app design:
+
+User Table:
+UserID	Username	Password		Email		Balance	RegistrationDate
+1	user1	hashed_pwd1	user1@email.com	100.00	2024-02-07 12:00:00
+2	user2	hashed_pwd2	user2@email.com	50.00	2024-02-07 12:30:00
+
+
+Event Table:
+EventID	EventName	EventDate	EventType	Status
+1	Football Match 1	2024-02-10 18:00:00	Football	upcoming
+2	Tennis Game 1	2024-02-12 14:30:00	Tennis	ongoing
+
+BettingOption Table:
+OptionID	EventID	OptionName	Odds
+1	1	Team A wins	2.00
+2	1	Draw		3.50
+3	1	Team B wins	1.80
+4	2	Player 1 wins	1.75
+5	2	Player 2 wins	2.20
+
+
+BetSlip Table:
+SlipID	UserID	EventID	OptionID	StakeAmount	BetStatus
+1	1	1	2	20.00		ending
+2	1	2	4	30.00		won
+3	2	1	1	15.00		lost
+
+
+===============================================================================
+
+Gaming
+
++---------------------+           +---------------------+
+|      Players        |           |        Games        |
++---------------------+           +---------------------+
+| PK PlayerID         |           | PK GameID           |
+| Username            |           | Title               |
+| Password            |           | Genre               |
+| Email               |           | ReleaseDate         |
+| RegistrationDate    |           | Description         |
+| LastLoginDate       |           | AverageRating       |
+| TotalPlaytime       |           +---------------------+
++---------------------+           +---------------------+
+     |    |                          |   |   |   |   |
+     |    +--------------------------+   |   |   |   |
+     |                                  |   |   |   |
+     v                                  v   |   |   |
++---------------------+           +---------------------+
+|   PlayerGames      |           |    Achievements    |
++---------------------+           +---------------------+
+| PK PlayerGameID    |           | PK AchievementID   |
+| FK PlayerID        |<----------| Title             |
+| FK GameID          |           | Description       |
+| Playtime           |           | Points            |
+| LastPlayed         |           +---------------------+
+| Progress           |
+| IsFavorite         |
++---------------------+
+     |
+     |
+     v
++---------------------+
+|   Transactions     |
++---------------------+
+| PK TransactionID   |
+| FK PlayerID        |
+| FK GameID          |
+| Amount             |
+| TransactionDate    |
+| TransactionType    |
++---------------------+
+     |
+     |
+     v
++---------------------+
+|      Reviews        |
++---------------------+
+| PK ReviewID         |
+| FK PlayerID         |
+| FK GameID           |
+| Rating              |
+| Comment             |
+| SubmissionDate      |
++---------------------+
+     |
+     |
+     v
++---------------------+
+|      Friends        |
++---------------------+
+| PK FriendshipID     |
+| FK Player1ID        |
+| FK Player2ID        |
+| FriendshipDate      |
++---------------------+
+     |
+     |
+     v
++---------------------+
+|     Messages        |
++---------------------+
+| PK MessageID        |
+| FK SenderID         |
+| FK ReceiverID       |
+| MessageText         |
+| SendDate            |
++---------------------+
+
+
+
+-----------------------------------------------------------------
+
+Google calendar design:
+
+User Table:
+- UserID (Primary Key)
+- Username
+- Email
+- Password (encrypted)
+
+Calendar Table:
+- CalendarID (Primary Key)
+- UserID (Foreign Key referencing User table)
+- CalendarName
+- Description
+
+Event Table:
+- EventID (Primary Key)
+- CalendarID (Foreign Key referencing Calendar table)
+- EventName
+- Description
+- Location
+- StartDateTime
+- EndDateTime
+
+| EventID | CalendarID | EventName       | Description          | Location       | StartDateTime       | EndDateTime         |
+|---------|------------|-----------------|----------------------|----------------|---------------------|---------------------|
+| 1       | 1          | Meeting with CEO| Monthly review       | Boardroom      | 2024-06-03 09:00:00 | 2024-06-03 10:00:00|
+| 2       | 1          | Team Lunch      | Monthly team lunch   | Cafeteria      | 2024-06-05 12:30:00 | 2024-06-05 13:30:00|
+| 3       | 2          | Dentist Appt    | Dental checkup       | Dental Clinic  | 2024-06-07 15:00:00 | 2024-06-07 16:00:00|
+
+
+
+Participant Table:
+- EventID (Foreign Key referencing Event table)
+- UserID (Foreign Key referencing User table)
+- ParticipantType
+
+| EventID | UserID | ParticipantType |
+|---------|--------|-----------------|
+| 1       | 1      | Organizer       |
+| 1       | 2      | Attendee        |
+| 2       | 1      | Organizer       |
+| 2       | 2      | Attendee        |
+| 2       | 3      | Attendee        |
+
+
+
+Notification Table:
+
+- NotificationID (Primary Key)
+- EventID (Foreign Key referencing Event table)
+- UserID (Foreign Key referencing User table)
+- NotificationDateTime
+- NotificationMessage
+
+| NotificationID | EventID | UserID | NotificationDateTime   | NotificationMessage          |
+|----------------|---------|--------|------------------------|------------------------------|
+| 1              | 1       | 2      | 2024-06-02 10:00:00    | Reminder: Meeting tomorrow   |
+| 2              | 2       | 3      | 2024-06-04 12:00:00    | Reminder: Lunch in 30 mins  |
+
+
+
+Recurrence Table:
+- RecurrenceID (Primary Key)
+- EventID (Foreign Key referencing Event table)
+- RecurrenceType
+- RecurrenceInterval
+- RecurrenceEnd
+
+| RecurrenceID | EventID | RecurrenceType | RecurrenceInterval | RecurrenceEnd          |
+|--------------|---------|----------------|--------------------|------------------------|
+| 1            | 1       | Monthly        | 1                  | NULL (No end date)     |
+| 2            | 2       | Weekly         | 1                  | 2024-08-01 (End date)  |
+
+
+
+
+
