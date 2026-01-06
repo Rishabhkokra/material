@@ -1,0 +1,236 @@
+Addition of LL
+Multiply of LL - https://geeksforgeeks.org/multiply-two-numbers-represented-linked-lists/
+Is LL Palindrome - https://www.geeksforgeeks.org/function-to-check-if-a-singly-linked-list-is-palindrome/ -- use stack
+Sort 0,1,&2's in LL - https://www.geeksforgeeks.org/sort-a-linked-list-of-0s-1s-or-2s/
+Rain water trapping - https://www.geeksforgeeks.org/trapping-rain-water/
+
+
+distributed messaging queue -> https://www.youtube.com/watch?v=ZwwYgiT9GH0
+
+Varnish is an HTTP reverse proxy that works by caching frequently requested web pages, so they can be loaded quickly without having to wait for a server response.
+
+
+Apache chukwa  / apache flume : for collecting logs, events like (video viewing , click data) and it is built on the top of HDFS , mapper reducer Hadoop. It also has dashboard which give data visualisation.
+
+Calculate checksum of file to check if it is corrupted or not.
+
+Apache storm - Apache Storm is a free and open source distributed realtime computation system
+
+In spark streaming we have to decide the window batch size.
+
+Food delivery app - https://leetcode.com/discuss/interview-question/874074/Food-Delivery-App-or-Low-Level-Design-or-Interview-Question/720650
+
+Amazon/flipkart - https://www.youtube.com/watch?v=E-KW1O3hLSg
+
+Redis system design : https://www.youtube.com/watch?v=bP4BeUjNkXc , https://www.youtube.com/watch?v=h30k7YixrMo&t=10s
+
+Rate limiter - https://www.youtube.com/watch?v=mhUQe4BKZXs
+
+Url shorter- https://www.youtube.com/watch?v=JQDHz72OA3c
+
+Secret behind NoSql DB - https://www.youtube.com/watch?v=I6jB0nM9SKU
+
+Io multiplexing reason behind single threaded application is fast
+
+Kafka is fast because of below:
+
+1- Sequential memory access not random access
+2- zero read copy (app buffer -> os buffer-> disk -> NIC buffer -> consumer), means no involvement of CPU it works on DMA (Direct memory access)
+3- Distributed Job Scheduler - https://www.youtube.com/watch?v=cTMomjk1iRc
+4- Distributed Locks | System design - https://www.youtube.com/watch?v=v7x75aN9liM
+5- stock exchange - https://www.youtube.com/watch?v=gQfaWHOrITI
+
+6- elevator OOD -> https://www.youtube.com/watch?v=siqiJAJWUVg , https://swatijha.hashnode.dev/elevator-system-low-level-design
+
+Elevator system - https://medium.com/geekculture/system-design-elevator-system-design-interview-question-6e8d03ce1b44 , https://leetcode.com/discuss/interview-question/object-oriented-design/2563167/LLD-or-Low-level-Design-Diagram-or-Elevator-System
+
+Whatsapp - https://medium.com/@info.vikaasyadav/whatsapp-architecture-2d24c6ae067d
+
+DSA all questions -> https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/
+
+While SSE(Server Sent events) and WebSockets both enable real-time communication, SSE is more suitable for scenarios where the server needs to push data to clients unidirectionally, such as in live updates or event streaming. WebSockets, on the other hand, are more versatile and support full-duplex communication.
+
+
+R+W > N means , read if node is 3 then read & write should happen on at least 2 nodes (primary & secondary) https://www.youtube.com/watch?v=fowDzrMa-Mo
+
+Server monitoring tools -> Nagios
+
+7- google search + crawler- https://www.youtube.com/watch?v=0LTXCcVRQi0&t=4s
+
+=======================================
+
+1) - All primitives are thread safe except long & double because they are 64 bits , and cpu takes 2 cycles to assign the value to them . One cycle for lower 32 bits + upper 32 bits.
+And we if declare them with volatile keyword i.e volatile double x=1; then it becomes thread safe .
+
+2)- java.util.concurrent.atomic 
+3)- deadlock can be avoided by setting the lock in same order everywhere.
+
+4)- reentrantLock doesn't guarantee fairness i.e it may out of 5 threads only 1 & same thread getting lock all the time and other threads are starving.
+Faireness can be achieved by passing true reentrantLock(true)
+reentrantLock has tryLock() method , which we could use and save the thread from going in suspension.
+
+https://medium.com/@vibhor2611/interview-experience-with-arcesium-8-years-3a15a0a97796
+https://www.digitalocean.com/community/tutorials/java-multithreading-concurrency-interview-questions-answers
+https://www.interviewbit.com/multithreading-interview-questions/
+
+5)- ReentrantReadWriteLock
+
+6)- semaphore allows N number of threads to access a resource, lock allows one thread to access resource at a time.
+Semaphore can be released by any thread even if the thread haven't acquired by lock , by calling .release() method
+
+Semaphores allow multiple threads or processes to access a shared resource with limited capacity, while mutexes only allow one thread or process to access a shared resource at a time. Both mechanisms help prevent race conditions and ensure that shared resources are accessed in a controlled and synchronized manner
+
+
+7)- revisit===  https://www.udemy.com/course/java-multithreading-concurrency-performance-optimization/learn/lecture/13603336#overview
+8)- section 10
+9)- virtual thread added in jdk21
+10)- indexing - https://www.youtube.com/watch?v=LofXITqT0Qc
+11)- how cursor work is DB ? https://www.youtube.com/watch?v=1h1i_hKugvg
+12)- DB Normalisation - https://www.youtube.com/watch?v=amvPLAJ1Bww - https://medium.com/webarchitects/real-interview-question-implement-a-multi-threaded-web-crawler-d4dba74b5621\
+
+User (user id (PK), user name (unique), password (salted and hashed!), first name, last name, phone etc')
+Role (role id (PK), role name (unique), role description)
+Permission (permission id (PK), permission name (unique)) - the tabs / screens / actions goes here
+User To Role (user id, role id) - PK is both columns combined
+Role to Permission (role id, permission id) - PK is both columns combined
+
+13)- springboot internal working - 
+     * under auto configuration module spring.factories file is there --- read more
+
+14)- SOLID principle
+
+========
+
+1- eCommerce database design - https://www.youtube.com/watch?v=1HamqOuv2Cw
+2- hotel database design - https://www.youtube.com/watch?v=pYYmvaKy-yQ
+3- iterator & observer pattern - https://www.youtube.com/watch?v=uUUk8UNBTTU&list=PLqq-6Pq4lTTYPR2oH7kgElMYZhJd4vOGI&index=10
+4- Index fragmentation - occurs when the data pages in indexes are logically disordered, loosely filled, or overfilled.
+https://www.youtube.com/watch?v=amcqdWqi_1Q
+
+5-
+Normalization: This process aims to eliminate redundancy and improve data consistency. It involves organizing the database into tables structured to minimise data duplication and inconsistencies.
+
+6- Normalization vs denormalisation- https://www.linkedin.com/pulse/normalization-vs-denormalization-rohit-prasad#:~:text=Normalization%20is%20used%20when%20the,to%20optimize%20the%20read%20performance.
+
+DB Normalisation - https://www.youtube.com/watch?v=amvPLAJ1Bww - https://medium.com/webarchitects/real-interview-question-implement-a-multi-threaded-web-crawler-d4dba74b5621\
+
+
+=============================
+
+Zookeeper - https://www.youtube.com/watch?v=gZj16chk0Ss
+Reactive vs traditional thread per request - https://www.youtube.com/watch?v=plcvU876MZk
+GC in java - https://sematext.com/blog/java-garbage-collection-logs/ 
+https://www.youtube.com/watch?v=UnaNQgzw4zY
+under-promise and overdeliver. 
+GC tuning - https://sematext.com/blog/jvm-performance-tuning/
+https://sematext.com/blog/jvm-metrics/
+
+Memory leaks – they always lead to garbage collection (GC) issues regardless of tuning.
+
+When using singletons, rely upon an implementation that lazily loads the object, instead of eagerly loading.
+https://www.baeldung.com/java-memory-leaks
+
+https://medium.com/blue-harvest-tech-blog/what-happened-to-java-after-8-java-15-and-the-future-8a005edcc013
+
+The answer is; var keyword means that you want the compiler to figure the type out.
+Using the Object keyword upcasts your object to the Object type. 
+
+
+Java 9- shell , modularity
+Java10- var keyword
+Java11 - no more Javac , @NotNull
+Java12 - switch case optimisation 
+Java13 - textblock preview betterment
+Java14- null pointer exception enhancement , zgc - At its core, ZGC is a concurrent garbage collector, meaning all heavy lifting work is done while Java threads continue to execute. This greatly limits the impact garbage collection will have on your application’s response time.
+
+Java15- sealed & non-sealed interfaces - which class can extend or cannot extend
+ virtual thread added in jdk21
+
+
+ Drools is highly extensible and offers features like decision tables, a rule language, and a powerful inference engine. It's widely used in industries where complex decision-making processes are a common occurrence
+
+===========================================================
+CQRS - Command query request segregation , means micro services will write in their own reps. DB however 3rd DB with view will be the combination of all micorservices DB. (Update via CDC pipeline of view refresh feature of oracle)
+
+-------
+
+Design Pattern:
+
+All behavioural patterns : https://notebook.zohopublic.in/public/notes/bietvc07e6ecf28d7409286145c16e623f9ed
+Udemy : https://www.udemy.com/course/system_design_lld_hld/learn/lecture/41932960#overview
+
+----------
+Sharding & Partitioning - https://www.youtube.com/watch?v=wXvljefXyEo
+
+Notification system design : https://www.youtube.com/watch?v=DQwlmTvs6xA
+
+** Sql vs Nosql - https://www.youtube.com/watch?v=4zfgZrHUMvQ
+
+Adobe---
+https://www.interviewbit.com/java-interview-questions/
+
+https://nagendrareddy2.medium.com/microsoft-and-adobe-interview-experience-7c6a2ca26ff7
+https://lldcoding.com/design-lld-chess-machine-coding-interview
+
+Redis VS Aerospike: https://aerospike.com/compare/redis-vs-aerospike/
+
+
+https://www.youtube.com/watch?v=sEQk8xgjx64
+https://www.geeksforgeeks.org/association-composition-aggregation-java/
+https://www.geeksforgeeks.org/how-to-design-a-database-for-instagram/?ref=ml_lbp
+
+
+https://www.geeksforgeeks.org/design-instagram-a-system-design-interview-question/
+Solace vs Kafka - https://solace.com/differences/kafka/
+
+-- Snake ladder LLD - \\
+
+IMPORTANT LLD - https://leetcode.com/discuss/interview-question/4513863/500%2B-LLD-Question-with-Solutions
+
+https://lldcoding.com/design-lld-a-system-for-online-food-ordering-and-delivery-like-zomato-machine-coding
+---------
+DSA Patterns:  https://www.youtube.com/watch?v=xo7XrRVxH8Y
+
+-------
+https://www.youtube.com/watch?v=nH4qjmP2KEE
+10 most distributed design patterns - ciruit breaker , CQRS , Sharding, publisher/subscriber , leader election , event sourcing,
+
+-------------------
+
+system designs
+https://www.youtube.com/@ByteMonk
+
+
+-------
+In vector databases, HNSW (often mis-typed as HSNW) stands for:
+
+Hierarchical Navigable Small World (graph)
+
+It is a graph-based indexing algorithm used for Approximate Nearest Neighbor (ANN) search.
+
+Cosine similarity is a metric that measures how similar two vectors are by comparing the angle between them, not their magnitude. lower angle means higher similarity
+------
+
+
+MPP - Masivelly Parallel Processing , https://www.matillion.com/blog/what-is-massively-parallel-processing
+
+* Converged Index = Row Index + Columnar Index + Search Index
+At the end of the day, our Converged Index indexes all the fields in all the documents that you store in Rockset in a single system that combines a row index, a columnar index and a search index.
+
+=================
+
+Global Secondary Index (GSI) : https://www.youtube.com/watch?v=eQ3eNd5WbH8&list=PLsdq-3Z1EPT2C-Da7Jscr7NptGcIZgQ2l&index=6
+
+----
+A columnar database is designed for fast analytics over large datasets, not for transactional workloads.
+The key idea is: store data column-wise instead of row-wise, so queries that scan a few columns over many rows become extremely fast.
+eg- BigQuery
+
+Snowflake
+
+Redshift
+
+ClickHouse
+
+Apache Druid
+
